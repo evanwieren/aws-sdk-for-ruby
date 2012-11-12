@@ -246,7 +246,7 @@ module AWS
         super
         @key = key
         @bucket = bucket
-        @etag = opts['etag']
+        @etag = opts['etag'] # shazbot need to check if variable then set. 
       end
 
       # @return [String] The objects unique key
@@ -256,7 +256,7 @@ module AWS
       attr_reader :bucket
       
       # @return [String] The objects unique etag.
-      attr_reader :etag
+      attr_reader :etag  # need to check if set. return if is or head if not.
 
       # @private
       def inspect

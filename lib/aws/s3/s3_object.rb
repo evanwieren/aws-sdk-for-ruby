@@ -246,6 +246,7 @@ module AWS
         super
         @key = key
         @bucket = bucket
+        @etag = opts['etag']
       end
 
       # @return [String] The objects unique key
@@ -253,6 +254,9 @@ module AWS
 
       # @return [Bucket] The bucket this object is in.
       attr_reader :bucket
+      
+      # @return [String] The objects unique etag.
+      attr_reader :etag
 
       # @private
       def inspect
@@ -281,7 +285,6 @@ module AWS
       # * metadata (hash of user-supplied key-value pairs)
       # * content_length (integer, number of bytes)
       # * content_type (as sent to S3 when uploading the object)
-      # * etag (typically the object's MD5)
       # * server_side_encryption (the algorithm used to encrypt the
       #   object on the server side, e.g. +:aes256+)
       #
@@ -289,21 +292,10 @@ module AWS
       # @option options [String] :version_id Which version of this object
       #   to make a HEAD request against.
       # @return A head object response with metadata,
-      #   content_length, content_type, etag and server_side_encryption.
+      #   content_length, content_type, and server_side_encryption.
       def head options = {}
         client.head_object(options.merge(
           :bucket_name => bucket.name, :key => key))
-      end
-
-      # Returns the object's ETag.
-      #
-      # Generally the ETAG is the MD5 of the object.  If the object was
-      # uploaded using multipart upload then this is the MD5 all of the
-      # upload-part-md5s.
-      #
-      # @return [String] Returns the object's ETag
-      def etag
-        head.etag
       end
 
       # Returns the object's last modified time.

@@ -1,4 +1,4 @@
-# Copyright 2011-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright 2011-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License"). You
 # may not use this file except in compliance with the License. A copy of
@@ -29,7 +29,7 @@ module AWS
   # credentials (e.g. requires a session token).
   #
   # @note If you make a request using AWS::DynamoDB with long-term credentials
-  #   a request is made to Amazon STS for temproary session credentials.
+  #   a request is made to Amazon STS for temporary session credentials.
   #   These will be cached in the process and re-used.
   #
   # = Tables

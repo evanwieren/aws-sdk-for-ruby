@@ -1,4 +1,4 @@
-# Copyright 2011-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright 2011-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License"). You
 # may not use this file except in compliance with the License. A copy of
@@ -17,12 +17,10 @@ module AWS
     # Client class for Amazon Cloud Search.
     class Client < Core::QueryClient
 
-      define_client_methods('2011-02-01')
-
       # @private
       CACHEABLE_REQUESTS = Set[]
 
-      ## client methods ##
+      # client methods #
 
       # @!method create_domain(options = {})
       # Calls the CreateDomain API operation.
@@ -172,7 +170,7 @@ module AWS
       #       expressions and supports: Integer, floating point, hex and octal
       #       literals Shortcut evaluation of logical operators such that an
       #       expression a || b evaluates to the value a if a is +true+ without
-      #       evaluting b at all JavaScript order of precendence for operators
+      #       evaluating b at all JavaScript order of precedence for operators
       #       Arithmetic operators: + - * / % Boolean operators (including the
       #       ternary operator) Bitwise operators Comparison operators Common
       #       mathematic functions: abs ceil erf exp floor lgamma ln log2 log10
@@ -551,7 +549,9 @@ module AWS
       #       * +:update_version+ - (Integer)
       #       * +:state+ - (String)
 
-      ## end client methods ##
+      # end client methods #
+
+      define_client_methods('2011-02-01')
 
     end
   end
